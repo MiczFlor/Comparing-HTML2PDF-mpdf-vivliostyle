@@ -1,13 +1,13 @@
 @page {
-  sheet-size: 210mm 297mm;  
-  size: 210mm 297mm; 
+  sheet-size: 170mm 220mm;  
+  size: 170mm 220mm; 
 
-  margin-left: 2.6cm; 
-  margin-right: 3.4cm;
-  margin-top: 2.4cm; 
+  margin-left: 1.8cm; 
+  margin-right: 1.8cm;
+  margin-top: 1.875cm; 
   margin-bottom: 2.8cm;
 
-  margin-footer: 15mm;
+  margin-footer: 12mm;
   odd-footer-name: html_footer-right;
   even-footer-name: html_footer-left;
   
