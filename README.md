@@ -1,6 +1,8 @@
 # Comparing-HTML2PDF-mpdf-vivliostyle
 Comparing the PDF generated with vivliostyle and mpdf, focussing on multicolumns, orphans and widows.
 
+For automated PDF generation, take a look at http;//booktype.pro and give it a test ride at http://omnibook.pro
+
 # Using vivliostyle on a headless ubuntu machine
 
 To create a PDF on a headless server, you need to use electroshot. See: https://www.npmjs.com/package/electroshot
