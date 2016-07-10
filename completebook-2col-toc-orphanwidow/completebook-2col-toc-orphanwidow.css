@@ -1,4 +1,8 @@
 /* Pre-load 'Academic (Comfortable)' Version 0.1 theme fonts */
+
+/* for table of contents */
+a::after { content: target-counter(attr(href url), page) }
+
 @font-face {
     font-family: 'roboto';
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
@@ -78,6 +82,8 @@ html {
 
   orphans: 2;
   widows: 2;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
@@ -89,71 +95,103 @@ html {
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
-    -webkit-column-gap: 2em;
-       -moz-column-gap: 2em;
-            column-gap: 2em;
+    -webkit-column-gap: 22pt;
+       -moz-column-gap: 22pt;
+            column-gap: 22pt;
   }
 }
 
 @page {
-  /*
-  sheet-size: 170mm 220mm;  
-  size: 170mm 220mm; 
+  size: 140mm 215mm; 
 
-  margin-left: 1.8cm; 
-  margin-right: 1.8cm;
-  margin-top: 1.875cm; 
-  margin-bottom: 2.8cm;
-
-  margin-footer: 12mm;
-  odd-footer-name: html_footer-right;
-  even-footer-name: html_footer-left;
-  
-  margin-header: 8mm;
-  odd-header-name: html_header-right;
-  even-header-name: html_header-left;       
-  */
-  size: 170mm 220mm; 
-
-  margin-left: 1.8cm; 
-  margin-right: 1.8cm;
-  margin-top: 1.875cm; 
-  margin-bottom: 2.8cm;
+  margin-left: 11mm; 
+  margin-right: 13mm;
+  margin-top: 12mm; 
+  margin-bottom: 28mm;
   /* The followings are inherited to page-margin boxes */
   font-family: "roboto";
-  font-size: 9pt;
+  font-size: 10pt;
   vertical-align: top;
 }
 @page :left {
   /* top-left header */
   @top-left {
-    content: "%Book Title%";
+    content: "";
     margin-top: 8mm;
     margin-bottom: 4mm;
     border-bottom: 0pt solid #000;
   }
   /* bottom-left page number */
-  @bottom-center {
+  @bottom-left {
+    font-size: 9pt;
+    font-weight: bold;
     content: counter(page);
+    margin-top: 6mm;
+  }
+  /* bottom-right text */
+  @bottom-right {
+    font-size: 9pt;
+    font-weight: bold;
+    content: "Informe 2014/15 Amnistía Internacional";
     margin-top: 6mm;
   }
 }
 @page :right {
   /* top-right header (only for border) */
   @top-right {
-    content: "%Book Title2%";
+    content: "";
     margin-top: 8mm;
     margin-bottom: 4mm;
     border-bottom: 0pt solid #000;
   }
   /* bottom-right page number */
-  @bottom-center {
+  @bottom-right {
+    font-size: 9pt;
+    font-weight: bold;
     content: counter(page);
     margin-top: 6mm;
   }
+  /* bottom-left text */
+  @bottom-left {
+    font-size: 9pt;
+    font-weight: bold;
+    content: "Informe 2014/15 Amnistía Internacional";
+    margin-top: 6mm;
+  }
 }
-html {
-  -webkit-font-smoothing: antialiased;
+/* cover page */
+.coverpage {
+  position: absolute;
+  top: 0pt;
+  left: 0pt;
+  width: 100%;
+  height: 100%;
+	break-after: true;
+}
+.coverimg {
+  z-index: 1;
+  position: relative;
+  top: 0pt;
+  left 0pt;
+	height: 100%;
+}
+.covertext1 {
+  z-index: 2;
+  position: relative;
+  top: 50%;
+  left: 20pt;
+}
+.covertext2 {
+  z-index: 2;
+  position: relative;
+  top: 50%;
+  left: 20pt;
+}
+.covertext3 {
+  z-index: 2;
+  position: relative;
+  top: 50%;
+  left: 20pt;
 }
 /*
 h1 {
@@ -191,14 +229,13 @@ p.author {
 */
 
 body {
-  font-size: 10.5pt; 
-  line-height: 14.7pt; 
+  font-size: 10pt; 
+  line-height: 13pt; 
   margin: 0;
   padding: 0;
   color: #000000;
   font-family: "roboto"; 
   text-align: justify;
-  -webkit-font-smoothing: antialiased;
 }
 
 .impl {
@@ -252,7 +289,7 @@ h1.section {
   font-family: "roboto"; 
   text-align: left; 
   font-weight: bold; 
-  font-size: 31.5pt;
+  font-size: 30pt;
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
@@ -269,7 +306,7 @@ div.frontmatter-half-title {
   text-transform: uppercase; 
   font-family: "roboto"; 
   text-decoration: none;
-  font-size: 21pt;
+  font-size: 20pt;
 }
 
 div.frontmatter-author {
@@ -277,7 +314,7 @@ div.frontmatter-author {
   margin-top: 8rem;
   text-align: left; 
   font-family: "roboto"; 
-  font-size: 21pt;
+  font-size: 20pt;
 }
 
 /* FRONT MATTER (title) *****************************************************/
@@ -290,7 +327,7 @@ div.frontmatter-title {
   text-transform: uppercase; 
   font-family: "roboto"; 
   text-decoration: none;
-  font-size: 31.5pt;
+  font-size: 30pt;
 }
 
 div.frontmatter-line {
@@ -306,7 +343,7 @@ div.frontmatter-subtitle {
   font-weight: normal;
   text-align: left; 
   font-family: "roboto"; 
-  font-size: 21pt;
+  font-size: 20pt;
 }
 
 div.frontmatter-author-title {
@@ -315,7 +352,7 @@ div.frontmatter-author-title {
   margin-bottom: 2em;
   text-align: left; 
   font-family: "roboto"; 
-  font-size: 21pt;
+  font-size: 20pt;
 }
 
 .frontmatter-bottom {
@@ -351,8 +388,8 @@ span.mpdf_toc_t_level_1 {
   color: #000000;
   background-color: #ffffff;
   padding-bottom: 0.5em; 
-  margin-top: 14.7pt; 
-  margin-bottom: 14.7pt; 
+  margin-top: 13pt; 
+  margin-bottom: 13pt; 
   border-left: 0.5pt solid #000000;
   border-top: 0.5pt solid #000000;
   border-right: 0.5pt solid #000000;
@@ -373,7 +410,7 @@ span.mpdf_toc_t_level_1 {
 
 /* dropcaps*/
 .dropcap {
-  font-size: inheritpt;
+  font-size: 40pt;
 }
 
 h1.chapter-h1 {
@@ -383,18 +420,13 @@ h1.chapter-h1 {
   text-align: left; 
   font-weight: normal; 
   font-family: "roboto-condensed"; 
-  font-size: 27.9pt;
-  padding-top: 44.1pt; 
-  margin-bottom: 44.1pt; 
-  line-height: 29.4pt; 
+  font-size: 26.6pt;
+  padding-top: 39pt; 
+  margin-bottom: 39pt; 
+  line-height: 26pt; 
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
-  text-indent: 0;
-  /* forbid page/column break after it */
-  -webkit-column-break-after: avoid;
-     page-break-after: avoid;
-          break-after: avoid;
 }
 
 h1.body-h1 {
@@ -404,18 +436,13 @@ h1.body-h1 {
   text-align: left; 
   font-weight: normal; 
   font-family: "roboto-condensed"; 
-  font-size: 24.5pt;
-  padding-top: 29.4pt; 
-  margin-bottom: 14.7pt; 
-  line-height: 29.4pt; 
+  font-size: 23.3pt;
+  padding-top: 26pt; 
+  margin-bottom: 13pt; 
+  line-height: 26pt; 
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
-  text-indent: 0;
-  /* forbid page/column break after it */
-  -webkit-column-break-after: avoid;
-     page-break-after: avoid;
-          break-after: avoid;
 }
 
 h2.body-h2 {
@@ -425,18 +452,13 @@ h2.body-h2 {
   text-align: left; 
   font-weight: normal; 
   font-family: "roboto-condensed"; 
-  font-size: 21pt;
-  padding-top: 9.8pt; 
-  margin-bottom: 4.9pt; 
-  line-height: 29.4pt; 
+  font-size: 20pt;
+  padding-top: 8.7pt; 
+  margin-bottom: 4.3pt; 
+  line-height: 26pt; 
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
-  text-indent: 0;
-  /* forbid page/column break after it */
-  -webkit-column-break-after: avoid;
-     page-break-after: avoid;
-          break-after: avoid;
 }
 
 h3.body-h3 {
@@ -446,18 +468,13 @@ h3.body-h3 {
   text-align: left; 
   font-weight: normal; 
   font-family: "roboto-condensed"; 
-  font-size: 15.8pt;
-  padding-top: 9.8pt; 
-  margin-bottom: 4.9pt; 
-  line-height: 14.7pt; 
+  font-size: 15pt;
+  padding-top: 8.7pt; 
+  margin-bottom: 4.3pt; 
+  line-height: 13pt; 
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
-  text-indent: 0;
-  /* forbid page/column break after it */
-  -webkit-column-break-after: avoid;
-     page-break-after: avoid;
-          break-after: avoid;
 }
 
 h4.body-h4 {
@@ -467,18 +484,13 @@ h4.body-h4 {
   text-align: left; 
   font-weight: normal; 
   font-family: "roboto-condensed"; 
-  font-size: 14pt;
-  padding-top: 9.8pt; 
-  margin-bottom: 4.9pt; 
-  line-height: 14.7pt; 
+  font-size: 13.3pt;
+  padding-top: 8.7pt; 
+  margin-bottom: 4.3pt; 
+  line-height: 13pt; 
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
-  text-indent: 0;
-  /* forbid page/column break after it */
-  -webkit-column-break-after: avoid;
-     page-break-after: avoid;
-          break-after: avoid;
 }
 
 h5.body-h5 {
@@ -488,38 +500,33 @@ h5.body-h5 {
   text-align: left; 
   font-weight: normal; 
   font-family: "roboto-condensed"; 
-  font-size: 10.5pt;
-  padding-top: 9.8pt; 
-  margin-bottom: 4.9pt; 
-  line-height: 14.7pt; 
+  font-size: 10pt;
+  padding-top: 8.7pt; 
+  margin-bottom: 4.3pt; 
+  line-height: 13pt; 
   text-transform: none; 
   border-bottom: 0rem solid black;
   text-decoration: none;
-  text-indent: 0;
-  /* forbid page/column break after it */
-  -webkit-column-break-after: avoid;
-     page-break-after: avoid;
-          break-after: avoid;
 }
 
 p {
   font-weight: normal;
   padding: 0;
   margin-top: 0;
-  margin-bottom: 14.7pt; 
+  margin-bottom: 0pt; 
 }
 p.body-first {
   text-indent: 0;
-  margin-bottom: 14.7pt; 
+  margin-bottom: 0pt; 
 }
 p.body {
-  margin-bottom: 14.7pt; 
-  text-indent: 0pt; 
+  margin-bottom: 0pt; 
+  text-indent: 13pt; 
 }
 p.hanging {
-  margin-bottom: 14.7pt; 
-  text-indent: -29.4pt;
-  padding-left: 29.4pt;
+  margin-bottom: 0pt; 
+  text-indent: -13pt;
+  padding-left: 13pt;
 }
 p:first-child:first-letter{
   float:left;
@@ -535,37 +542,37 @@ blockquote, .quote {
   font-family: "roboto"; 
   display: inline;
   font-weight: normal; 
-  font-size: 10.5pt;
+  font-size: 10pt;
   font-style: italic;
   text-indent: 0;
   border-left: 0.5em solid #ccc;
   padding-left: 2rem;
-  margin-left: 29.4pt;
-  margin-top: 14.7pt; 
-  margin-bottom: 14.7pt; 
+  margin-left: 13pt;
+  margin-top: 13pt; 
+  margin-bottom: 13pt; 
   text-align: left; 
-  line-height: 14.7pt; 
+  line-height: 13pt; 
   text-transform: none; 
   text-decoration: none;
 }
 /* Lists ****************************************************************/
 ul, ol {
-  line-height: 14.7pt; 
-  margin-top: 14.7pt; 
-  margin-bottom: 14.7pt; 
+  line-height: 13pt; 
+  margin-top: 13pt; 
+  margin-bottom: 13pt; 
 }
 li {
   padding: 0;
   margin: 0;
-  line-height: 14.7pt; 
+  line-height: 13pt; 
 }
 /* TABLE *****************************************************************/
 /* for caption styling see images section below */
 table {
   border-collapse: collapse;
   max-width: 100%;
-  margin-top: 14.7pt; 
-  margin-bottom: 14.7pt; 
+  margin-top: 13pt; 
+  margin-bottom: 13pt; 
 }
 th, td {
   border: 0.1mm solid #000000;
@@ -591,9 +598,9 @@ caption,
 .caption_fig, 
 .caption_image, 
 .caption_figure {
-  margin-top: 14.7pt;
-  font-size: 9.5pt;
-  line-height: 14.7pt;
+  margin-top: 13pt;
+  font-size: 9pt;
+  line-height: 13pt;
   font-style: italic;
 }
 .center {
@@ -603,12 +610,12 @@ caption,
 pre {
   padding-bottom: 0;
   padding-top: 0;
-  font-family: "freemono"; 
+  font-family: "texgyrecursor"; 
   font-weight: "normal"; 
   color: #000000; 
-  line-height: 14.7pt; 
-  margin-top: 14.7pt; 
-  margin-bottom: 14.7pt; 
+  line-height: 13pt; 
+  margin-top: 13pt; 
+  margin-bottom: 13pt; 
 }
 /* ENDNOTES **********************************************************/
 .endnote {
